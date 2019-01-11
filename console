@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+define('CONSOLE_START', microtime(true));
+
+require __DIR__.'/vendor/autoload.php';
+
+echo 'hello';
+
+exec('./vendor/bin/phpunit');
