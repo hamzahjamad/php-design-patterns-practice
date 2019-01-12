@@ -2,6 +2,8 @@
 namespace Tests\DesignPatterns\AbstractFactory\BookExample;
 
 use App\DesignPatterns\AbstractFactory\BookExample\OReillyBookFactory;
+use App\DesignPatterns\AbstractFactory\BookExample\OReillyPHPBook;
+use App\DesignPatterns\AbstractFactory\BookExample\OReillyMySQLBook;
 
 use PHPUnit\Framework\TestCase;
 
@@ -9,12 +11,18 @@ class OreillyBookFactoryTest extends TestCase
 {
 	use TestConcreteFactoryTrait;
 
-	public function testMakeFactory()
-    {
-      $bookFactoryInstance = new OReillyBookFactory;
-      $this->executeTestConcreteFactory($bookFactoryInstance);
+    protected $bookFactoryInstance;
+    protected $manualPHPBookOne;
+    protected $manualPHPBookTwo;
+    protected $manualMySQLBookOne;
+    protected $manualMySQLBookTwo;
 
-      //this is not the write way to write test 
-      $this->assertTrue(true);//just to make the tests happy
-    }
+	public function setUp()
+	{
+		$this->bookFactoryInstance = new OReillyBookFactory;
+		$this->manualPHPBookOne = new OReillyPHPBook;
+		$this->manualPHPBookTwo = new OReillyPHPBook;
+		$this->manualMySQLBookOne = new OReillyMySQLBook;
+		$this->manualMySQLBookTwo = new OReillyMySQLBook;
+	}
 }

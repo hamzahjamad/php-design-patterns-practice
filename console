@@ -4,13 +4,13 @@ define('CONSOLE_START', microtime(true));
 
 require __DIR__.'/vendor/autoload.php';
 
-$process = new Symfony\Component\Process\Process(array('php', './vendor/bin/phpunit', 'tests'));
+$process = new Symfony\Component\Process\Process(array('php', './vendor/bin/phpunit'));
 $process->start();
 
 foreach ($process as $type => $data) {
     if ($process::OUT === $type) {
-        echo "\n".$data;
+        echo $data;
     } else { // $process::ERR === $type
-        echo "\n".$data;
+        echo $data;
     }
 }

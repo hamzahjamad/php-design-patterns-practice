@@ -4,18 +4,19 @@ namespace App\DesignPatterns\AbstractFactory\BookExample;
 class SamsPHPBook extends AbstractPHPBook {
     private $author;
     private $title;
-    function __construct() {
-        //alternate randomly between 2 books
-        mt_srand((double)microtime() * 10000000);
-        $rand_num = mt_rand(0, 1);
+    private static $num = 1;
 
-        if (1 > $rand_num) {
+    function __construct() {
+
+        if (1 > self::$num) {
             $this->author = 'George Schlossnagle';
             $this->title = 'Advanced PHP Programming';
+            self::$num = 0;
         }
         else {
             $this->author = 'Christian Wenz';
             $this->title = 'PHP Phrasebook';
+            self::$num = 1;
         }
     }
     function getAuthor() {

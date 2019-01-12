@@ -1,5 +1,5 @@
 {
-    "name": "hamzahjamad/design-patterns-practice",
+    "name": "hamzahjamad/php-design-patterns-practice",
     "description": "Practicing design patterns in php",
     "type": "project",
     "license": "MIT",
@@ -15,7 +15,8 @@
         "symfony/process": "^4.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "codedungeon/phpunit-result-printer": "^0.11.2"
     },
     "autoload": {
         "psr-4": {
